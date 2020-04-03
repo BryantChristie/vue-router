@@ -32,7 +32,7 @@ export class HashHistory extends History {
       supportsPushState ? 'popstate' : 'hashchange',
       () => {
         const current = this.current
-        if (!ensureSlash()) {
+        if (!ensureSlash() && !supportsPushState) {
           return
         }
         this.transitionTo(getHash(), route => {
